@@ -1,3 +1,5 @@
+//https://leetcode.com/explore/featured/card/top-interview-questions-easy/92/array/578/
+
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
