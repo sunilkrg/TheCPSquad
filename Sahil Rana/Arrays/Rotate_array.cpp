@@ -1,3 +1,5 @@
+//https://leetcode.com/explore/featured/card/top-interview-questions-easy/92/array/646/
+
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
