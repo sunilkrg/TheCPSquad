@@ -1,4 +1,4 @@
-- **Top interview questions**
+**Top interview questions**
     - Array
       [x] Remove duplicates from sorted Array
       [ ] Best time to buy and sell
