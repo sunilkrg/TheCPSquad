@@ -41,6 +41,6 @@
   -  [x] delete node in a linked List
   -  [x] remove nth node from end of List
   -  [x] reverse linked list
-  -  [ ] merge two sorted lists
+  -  [x] merge two sorted lists
   -  [ ] palindrome linked list
   -  [ ] linked list cycle
