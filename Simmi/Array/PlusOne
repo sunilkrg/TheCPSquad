@@ -1,0 +1,135 @@
+class Solution {
+    static ArrayList<Integer> numm = new ArrayList<Integer>();
+    public static ArrayList result(ArrayList<Integer> res)
+    {
+        System.out.println(res);
+        numm=res;
+        return res;
+    }
+    public static ArrayList fun(Stack<Integer> st,Stack<Integer> st1)
+                {
+        ArrayList<Integer> res=new ArrayList<Integer>();
+       // int val=st.pop()+1;
+        st1.push(0);
+        int val=st.peek()+1;
+        
+      //  System.out.println(val);
+      //  System.out.println("st"+st);
+      //  System.out.println("st1"+st1);
+        if(val>9)
+        {
+            st.pop();
+            fun(st,st1);
+        }
+       
+        if(val<=9)
+        {
+            st1.push(val);
+            st.pop();
+            Iterator it = st.iterator();
+            while(it.hasNext())
+            {
+                st1.push(st.pop());
+            }
+       //     System.out.println("st"+st);
+      //  System.out.println("st1"+st1);
+            int size=st1.size();
+             
+            for(int i=0; i<size; i++) {
+         res.add(st1.pop());
+                
+      }
+                 // System.out.println("fin res3"+res);
+            result(res);
+           // ArrayList<Integer> res1=new ArrayList<Integer>(res);
+           // System.out.println("fin res3"+res1);
+             
+        }
+        // System.out.println("st"+st);
+       // System.out.println("st1"+st1);
+        //System.out.println("fin res3"+res);
+       return res;
+    }
+     
+   
+    public int[] plusOne(int[] digits) {
+        ArrayList<Integer> res=new ArrayList<Integer>();
+      
+        HashSet<Integer> hs=new HashSet<Integer>();
+        for(Integer i:digits)
+        {
+            hs.add(i);
+        }
+        Stack<Integer> st=new Stack<Integer>();
+        Stack<Integer> st1=new Stack<Integer>();
+       // System.out.println(hs);
+        if(hs.contains(9) && hs.size()==1)
+        {
+          //  System.out.println("val");
+            int sz=digits.length;
+            while(sz-->0)
+            {
+                st1.push(0);
+            }
+            st1.push(1);
+            int size=st1.size();
+             
+            for(int i=0; i<size; i++) {
+         res.add(st1.pop());
+                
+      }
+            
+         System.out.println("fin res1"+res);
+            
+        }
+        else
+        {
+        
+        for(Integer i:digits)
+        {
+            st.push(i);
+        }
+        
+        int val=st.peek()+1;
+     
+        Iterator it = st.iterator();
+       if(val<=9)
+       {
+          
+           st1.push(val);
+           st.pop();
+           while(it.hasNext())
+           {
+               int n=st.pop();
+               st1.push(n);
+           }
+           int size=st1.size();
+             
+            for(int i=0; i<size; i++) {
+         res.add(st1.pop());
+                
+      }
+                   System.out.println("fin res2"+res);
+       }
+        else if(val>9)
+        {
+            st.pop();
+               fun(st,st1);
+             System.out.println("numm"+numm);
+            res.clear();
+            res=numm;
+        
+        }
+
+        }
+         int[] ar=new int[res.size()];
+        for(int i=0;i<res.size();i++)
+        {
+            ar[i]=res.get(i);
+        }
+        return ar;
+        
+        
+     
+}
+}
