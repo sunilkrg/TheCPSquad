@@ -1,0 +1,53 @@
+class Solution {
+    public int largestRectangleArea(int[] heights) {
+       
+        int result=0;
+        for(int i=0;i<heights.length;i++)
+        {
+            int var1=i;
+            int var2=i;
+            int count1=0;
+            int count2=0;
+            int cmp=heights[i];
+            while(var1>=0)
+            {
+                if(cmp>heights[var1])
+                {
+                    break;
+                }
+                else
+                {
+                    count1++;
+                }
+            
+                var1--;
+            }
+          
+            while(var2<heights.length)
+            {
+                
+                
+                if(cmp>heights[var2])
+                {
+                    break;
+                }
+                else
+                {
+                    count2++;
+                }
+               
+                 var2++;
+            }
+          
+            int res=heights[i]*(count1+count2-1);
+            if(res>result)
+            {
+                result=res;
+            }
+            
+        }
+     
+        return result;
+        
+    }
+}
