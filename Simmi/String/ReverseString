@@ -1,0 +1,29 @@
+class Solution {
+    public void reverseString(char[] s) {
+       int length=s.length;
+        int len=0;
+        if(length%2==0)
+        {
+            len=length/2;
+        }
+        else if(length%2!=0)
+        {
+            len=length/2+1;
+        }
+         int var=s.length-1;
+        for(int i=0;i<s.length/2;i++)
+        {
+           
+            char c=s[var];
+            s[var]=s[i];
+            s[i]=c;
+            System.out.println("first"+c);
+              System.out.println("first");
+            
+            var--;
+            
+        }
+        
+        
+    }
+}
