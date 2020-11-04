@@ -1,0 +1,17 @@
+class Solution {
+    public static int helper(int arr[] , int n , int dp[]){
+        if(n <= 0)
+            return 0;
+        if(n == 1)
+            return arr[n-1];
+        if(dp[n] != -1)
+            return dp[n];
+        dp[n] = Math.max(arr[n - 1] + helper(arr , n - 2 , dp) , helper(arr , n-1 , dp));
+        return dp[n];
+    }
+    public int rob(int[] nums) {
+        int dp[] = new int[nums.length + 1];
+        Arrays.fill(dp , -1);
+        return helper(nums , nums.length , dp);
+    }
+}
