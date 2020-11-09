@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int maxScore(vector<int>& nums, int k) {
+        int sum=0;
+        
+        for(int i=0;i<k;i++)
+            sum+=nums[i];
+        
+        int m=sum;
+        
+        for(int i=0;i<k;i++)
+        {
+            cout<<"\ni is: "<<i<<" sum is: "<<sum;
+            sum=sum-nums[k-i-1]+nums[nums.size()-i-1];
+            m=max(sum,m);
+        }
+        return m;
+    }
+};
