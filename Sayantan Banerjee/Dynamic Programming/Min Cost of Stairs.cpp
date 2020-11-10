@@ -1,4 +1,4 @@
-// AUTHOR :- SAYANTAN BANERJEE
+// AUTHOR :- SAYANTAN BANERJEE (IIIT GWALIOR)
 
 // https://leetcode.com/problems/min-cost-climbing-stairs/
 
