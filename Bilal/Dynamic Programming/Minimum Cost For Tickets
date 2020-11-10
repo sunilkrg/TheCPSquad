@@ -1,0 +1,40 @@
+class Solution {
+public:
+    int calc(vector<int>& days, vector<int>& costs,int i, int dp[]){
+        
+        
+        if(i>=days.size()) return 0;
+        if(dp[i] >  0) return dp[i];
+        int q1 = costs[0] + calc(days,costs,i+1,dp);
+        
+        
+        int k = i;
+        for(;k<days.size();k++){
+            if(days[k]>=days[i]+7){
+                break;
+            }
+        }
+        int q2 = costs[1] + calc(days,costs,k,dp);
+        
+        for(;k<days.size();k++){
+            if(days[k]>=days[i]+30){
+                break;
+            }
+        }
+        int q3 = costs[2] + calc(days,costs,k,dp);
+        
+        dp[i] = min(q1,min(q2,q3));
+        return min(q1,min(q2,q3));
+    }
+    
+    
+    
+    
+    
+    int mincostTickets(vector<int>& days, vector<int>& costs) {
+        int l = days.size();
+        int dp[365] = {0};
+        int ans = calc(days,costs,0,dp);
+        return ans;
+    }
+};
