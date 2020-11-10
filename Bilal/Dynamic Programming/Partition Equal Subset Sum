@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool canPartition(vector<int>& nums) {
+        int len = nums.size();
+        int sm = 0;
+        for(int i=0;i<len;i++){
+            sm+=nums[i];
+        }
+        if(sm%2!=0) return false;
+        int tar = sm/2;
+        vector<bool> dp(tar+1,false);
+        dp[0] = true;
+        
+        for(auto curr:nums){
+            for(int j=tar;j>=curr;j--){
+                dp[j] = dp[j] || dp[j-curr];
+            }
+        }
+        return dp[tar];
+    
+    }
+};
