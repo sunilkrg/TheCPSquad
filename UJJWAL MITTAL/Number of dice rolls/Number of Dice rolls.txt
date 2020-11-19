@@ -1,0 +1,22 @@
+class Solution {
+    static int helper(int dice , int faces , int target , int dp[][]){
+        if(dice == 0 && target == 0)
+            return 1;
+        if(dice <= 0 || target <= 0)
+            return 0;
+        long sum = 0;
+        if(dp[dice][target] != -1)
+            return dp[dice][target];
+        for(int face = 1 ; face <= faces ; face++){
+            sum+=helper(dice - 1 , faces , target - face , dp);
+        }
+        sum = sum % 1000000007;
+        return dp[dice][target] = (int)sum ;
+    }
+    public int numRollsToTarget(int d, int f, int target) {
+        int dp[][] = new int[d + 1][target + 1];
+        for(int i = 0 ; i <= d ; i++)
+            Arrays.fill(dp[i] , -1);
+        return helper(d , f , target , dp);
+    }
+}

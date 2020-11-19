@@ -1,0 +1,23 @@
+class Solution {
+    static boolean helper(String s , Set<String> set , HashMap<String , Boolean> map){
+        if(s.equals(""))
+            return true;
+        if(map.containsKey(s))
+            return map.get(s);
+        for(int i = 1 ; i <= s.length() ; i++){
+            if(set.contains(s.substring(0 , i)) && helper(s.substring(i , s.length()) , set , map)){
+                map.put(s.substring(i , s.length()) , true);
+                return true;
+            }
+        }
+        map.put(s , false);
+        return false;
+    }
+    public boolean wordBreak(String s, List<String> wordDict) {
+        HashMap<String , Boolean> map = new HashMap<>();
+        Set<String> set = new HashSet<>();
+        for(String l : wordDict)
+            set.add(l);
+        return helper(s , set , map);
+    }
+}
