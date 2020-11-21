@@ -1,0 +1,23 @@
+class Solution {
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        int[][] updated = new int[intervals.length + 1][2];
+        for(int i = 0 ; i < updated.length - 1 ; i++)
+            updated[i] = intervals[i];
+        updated[intervals.length] = newInterval;
+        if(updated.length <= 1)
+            return updated;
+        List<int[]> list = new ArrayList<>();
+        Arrays.sort(updated , (i1 , i2) -> i1[0] - i2[0]);
+        int curr[] = updated[0];
+        for(int i = 1 ; i < updated.length ; i++){
+            if(curr[1] < updated[i][0]){
+                list.add(curr);
+                curr = updated[i];
+            }
+            else
+                curr[1] = Math.max(curr[1] , updated[i][1]);
+        }
+        list.add(curr);
+        return list.toArray(new int[list.size()][]);
+    }
+}
