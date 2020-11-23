@@ -7,7 +7,7 @@
 //		   Now second last position check. if number forms valid (1 to 26 inclusive), then set as 1 + last element DP value. 
 //		   Else only set last element value.
 //		   
-//		   Now traverse the whole array from N-1 position to 0. 
+//		   Now traverse the whole array from N-3 position to 0. 
 //		   dp[i] = 0, if cur position = 0.
 //		   dp[i] = dp[i+1] + dp[i+2] , if number forms valid with the next one.
 //		   dp[i] = dp[i+1] , number is invalid
